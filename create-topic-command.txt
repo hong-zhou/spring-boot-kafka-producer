@@ -1,0 +1,7 @@
+Kafka create Topic:
+C:\Software\kafka_2.12-2.1.0\bin\windows>kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Kafka_User
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+Created topic "Kafka_User".
+
+Kafka create Consumer:
+C:\Software\kafka_2.12-2.1.0\bin\windows>kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic Kafka_User --from-beginning
