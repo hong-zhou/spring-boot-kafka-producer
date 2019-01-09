@@ -1,7 +1,34 @@
+start kafka locally:
+
+start zookeeper:
+Run Zookeeper by opening a new cmd and type zkserver.
+
+1. Go to your Kafka installation directory: C:\Software\kafka_2.12-2.1.0\
+
+2. Open a command prompt here by pressing Shift + right click and choose the “Open command window here” option).
+
+3. Now type .\bin\windows\kafka-server-start.bat .\config\server.properties and press Enter.
+
 Kafka create Topic:
 C:\Software\kafka_2.12-2.1.0\bin\windows>kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Kafka_User
 WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
 Created topic "Kafka_User".
 
+Kafka create Producer in console:
+C:\Software\kafka_2.12-2.1.0\bin\windows>kafka-console-producer.bat --broker-list localhost:9092 --topic Kafka_User
+
 Kafka create Consumer:
 C:\Software\kafka_2.12-2.1.0\bin\windows>kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic Kafka_User --from-beginning
+
+Kafka list topics:
+C:\Software\kafka_2.12-2.1.0\bin\windows>kafka-topics.bat --list --zookeeper localhost:2181
+
+Kafka delete topic:
+C:\Software\kafka_2.12-2.1.0\bin\windows>kafka-topics.bat --zookeeper localhost:2181 --delete --topic Kafka_User
+Topic Kafka_User is marked for deletion.
+Note: This will have no impact if delete.topic.enable is not set to true.
+
+Describe Kafka topics:
+C:\Software\kafka_2.12-2.1.0\bin\windows>kafka-topics.bat --describe --zookeeper localhost:2181 --topic Kafka_User
+Topic:Kafka_User        PartitionCount:1        ReplicationFactor:1     Configs:
+        Topic: Kafka_User       Partition: 0    Leader: 0       Replicas: 0     Isr: 0
